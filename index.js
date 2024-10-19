@@ -47,7 +47,7 @@ app.get('/api/objects', (req, res) => {
 
     objects = objects.filter(obj => Date.now() - obj.lastUpdate < 5 * 60 * 1000);
 
-    res.json({ key: process.env.AUTH_KEY});
+    res.json(objects);
 });
 
 // Запуск сервера
