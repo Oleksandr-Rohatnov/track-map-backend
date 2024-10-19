@@ -40,7 +40,8 @@ app.get('/api/objects', (req, res) => {
 
     objects = objects.filter(obj => Date.now() - obj.lastUpdate < 5 * 60 * 1000);
 
-    res.json(objects);
+    // res.json(objects);
+    res.status(200).text('Hello World!!!');
 });
 
 // Запуск сервера
