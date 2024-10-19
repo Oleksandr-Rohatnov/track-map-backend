@@ -1,7 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const config = require('./config');
-console.log(config.port)
 require('dotenv').config();
 
 let objects = [];
@@ -20,6 +20,13 @@ const generateObjects = () => {
 };
 
 generateObjects();
+
+const corsOptions = {
+    credentials: true,
+    origin: "*"
+};
+
+app.use(cors(corsOptions));
 
 app.post('/api/auth', (req, res) => {
     const { authKey } = req.headers; // Очікуємо ключ у заголовку запиту
