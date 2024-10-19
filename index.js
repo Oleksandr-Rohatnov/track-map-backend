@@ -34,14 +34,13 @@ app.post('/api/auth', (req, res) => {
 app.get('/api/objects', (req, res) => {
     const { authKey } = req.headers;
 
-    if (authKey !== process.env.AUTH_KEY) {
-        return res.status(403).json({ message: 'Unauthorized' });
-    }
+    // if (authKey !== process.env.AUTH_KEY) {
+    //     return res.status(403).json({ message: 'Unauthorized' });
+    // }
 
     objects = objects.filter(obj => Date.now() - obj.lastUpdate < 5 * 60 * 1000);
 
-    // res.json(objects);
-    res.status(200).json('Hello world');
+    res.json(objects);
 });
 
 // Запуск сервера
