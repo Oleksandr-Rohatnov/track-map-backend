@@ -23,7 +23,8 @@ generateObjects();
 
 const corsOptions = {
     credentials: true,
-    origin: "*"
+    origin: "*",
+    headers: "*"
 };
 
 app.use(cors(corsOptions));
