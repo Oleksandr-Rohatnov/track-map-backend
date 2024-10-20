@@ -34,7 +34,7 @@ app.post('/api/auth', (req, res) => {
     if (authKey === process.env.AUTH_KEY) {
         res.status(200).json({ message: 'Authorization successful' });
     } else {
-        res.status(403).json({ message: `process.env.AUTH_KEY: ${process.env.AUTH_KEY}  authKey: ${authKey}` });
+        res.status(403).json({ message: req.headers });
     }
 });
 
