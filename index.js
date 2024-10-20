@@ -29,12 +29,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post('/api/auth', (req, res) => {
-    const { authKey } = req.headers; // Очікуємо ключ у заголовку запиту
+    const { authKey } = req.headers;
 
     if (authKey === process.env.AUTH_KEY) {
         res.status(200).json({ message: 'Authorization successful' });
     } else {
-        res.status(403).json({ message: 'Authorization failed' });
+        res.status(403).json({ message: process.env.AUTH_KEY });
     }
 });
 
