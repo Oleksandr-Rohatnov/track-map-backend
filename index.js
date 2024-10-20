@@ -29,7 +29,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post('/api/auth', (req, res) => {
-    const { authKey } = req.headers;
+    const authKey = req.headers['authKey'];
 
     if (authKey === process.env.AUTH_KEY) {
         res.status(200).json({ message: 'Authorization successful' });
