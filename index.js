@@ -29,12 +29,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post('/api/auth', (req, res) => {
-    const authKey = req.headers['Authorization'];
+    const authKey = req.headers['authorization'];
 
     if (authKey === process.env.AUTH_KEY) {
         res.status(200).json({ message: 'Authorization successful' });
     } else {
-        res.status(403).json({ message: req.headers });
+        res.status(403).json({ message: 'Invalid key' });
     }
 });
 
