@@ -23,14 +23,13 @@ generateObjects();
 
 const corsOptions = {
     credentials: true,
-    origin: "*",
-    headers: "*"
+    origin: "*"
 };
 
 app.use(cors(corsOptions));
 
 app.post('/api/auth', (req, res) => {
-    const authKey = req.headers['authKey'];
+    const authKey = req.headers['Authorization'];
 
     if (authKey === process.env.AUTH_KEY) {
         res.status(200).json({ message: 'Authorization successful' });
