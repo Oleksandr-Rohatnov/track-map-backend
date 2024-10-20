@@ -45,8 +45,6 @@ app.get('/api/objects', (req, res) => {
         return res.status(403).json({ message: 'Unauthorized' });
     }
 
-    objects = objects.filter(obj => Date.now() - obj.lastUpdate < 5 * 60 * 1000);
-
     res.json(objects);
 });
 
