@@ -9,10 +9,10 @@ let objects = [];
 const generateObjects = () => {
     objects = Array.from({ length: 100 }, (_, i) => ({
         id: `object_${i + 1}`,
-        coordinates: {
-            lat: 44.38 + Math.random() * (52.38 - 44.38), // Від 44.38 до 52.38
-            lng: 22.14 + Math.random() * (40.23 - 22.14), // Від 22.14 до 40.23
-        },
+        coordinates: [
+            44.38 + Math.random() * (52.38 - 44.38), // Широта
+            22.14 + Math.random() * (40.23 - 22.14)  // Довгота
+        ],
         direction: ['north', 'south', 'east', 'west'][Math.floor(Math.random() * 4)],
         lastUpdate: Date.now(),
         lost: false,
